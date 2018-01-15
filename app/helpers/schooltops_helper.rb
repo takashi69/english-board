@@ -1,0 +1,2 @@
+module SchooltopsHelper
+end

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'schooltops/index'
+
   get 'sessions/new'
 
   get 'sessions/create'
@@ -13,4 +15,6 @@ Rails.application.routes.draw do
   
   get 'signup', to: 'users#new'
   resources :users, only: [:index, :show, :new, :create]
+  
+  resources :comments, only: [:create, :destroy]
 end
