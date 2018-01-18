@@ -1,0 +1,17 @@
+<% if courses.any? %>
+  <ul class="media-list">
+    <% courses.each do |course| %>
+      <li class="media">
+        <div class="media-left">
+        </div>
+        <div class="media-body">
+          <div>
+            <%= course.name %>
+          </div>
+
+        </div>
+      </li>
+    <% end %>
+  </ul>
+  <%= paginate courses %>
+<% end %>

@@ -6,8 +6,10 @@ class User < ApplicationRecord
   has_secure_password
  
  # has_manyでコースとコメントについてそれぞれ書く。 
+ # userからみたときcoureseがいくつもある。
   has_many :cources
   has_many :comments
   
+
   
 end

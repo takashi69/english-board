@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+          <h1 class="panel-title"><%= @school.name %></h1>
+    </div>
+    <div class="explanation">
+      <%= @school.explanation %>
+    <div>
+  </div>
+  
+
+  
+  <div>
+    <%= render 'courses/courses', courses: @courses %>
+  </div>
+
+  <aside class="col-xs-4">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= @school.name %></h3>
+      </div>
+      <div class="panel-body">
+      </div>
+    </div>
+  </aside>
+  <div class="col-xs-8">
+    <ul class="nav nav-tabs nav-justified">
+      <li><a href="#">schoolplace</a></li>
+      <li><a href="#">school</a></li>
+    </ul>
+  </div>
+</div>
