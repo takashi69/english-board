@@ -1,17 +1,24 @@
-<% if courses.any? %>
-  <ul class="media-list">
-    <% courses.each do |course| %>
-      <li class="media">
-        <div class="media-left">
-        </div>
-        <div class="media-body">
-          <div>
-            <%= course.name %>
-          </div>
-
-        </div>
-      </li>
+<div class="row">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+          <h1 class="panel-title"><%= @school.name %></h1>
+    </div>
+    <div class="explanation">
+      <%= @school.explanation %>
+    <div>
+  </div>
+  
+  
+<div class="row">
+  <aside class="col-md-4">
+    <%= form_for(@comment) do |f| %>
+      <div class="form-group">
+        <%= f.text_area :content, class: 'form-control', rows: 5 %>
+      </div>
+      <%= f.submit 'Post', class: 'btn btn-primary btn-block' %>
     <% end %>
-  </ul>
-  <%= paginate courses %>
-<% end %>
+  </aside>
+  <div class="col-xs-8">
+    <%= render 'comments/comments', comments: @comments %>
+  </div>
+</div>

@@ -15,13 +15,14 @@ Rails.application.routes.draw do
 
 # schoolのresources:
   resources :schools, only: [:index, :show, :new, :create] do
+    resource :courses, only: [:new, :create]
     member do
       get :courses
       get :toeic
     end
   end
   # cources のresources
-  resources :courses, only: [:index, :show, :new, :create]
+  resources :courses, only: [:index, :show]
   
 
 end
