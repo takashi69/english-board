@@ -1,0 +1,25 @@
+<h1>id: <%= @course.id %><br><%= @school.name %> <%= @course.name %>のメッセージ編集ページ</h1>
+
+<%= form_for(@course) do |f| %>
+<div>
+  <%= f.label :name, 'コース名' %>
+  <%= f.text_field :name, class: 'form-control' %>
+</div>
+<br>
+<div>
+  <%= f.label :term, '期間' %>
+  <%= f.text_field :term, class: 'form-control' %>
+</div>
+<br>
+<div>
+  <%= f.label :price, '価格' %>
+  <%= f.text_field :price, class: 'form-control' %>
+</div>
+<br>
+<div>
+  <%= f.submit '投稿', class: 'btn btn-primary btn-block' %>
+</div>
+
+<% end %>
+
+<%= link_to '一覧に戻る', schools_path %>

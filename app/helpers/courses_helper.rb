@@ -6,4 +6,12 @@ module CoursesHelper
       3 => 'Toefl'
     }
   end
+
+  def select_course
+    course_params.invert
+  end
+  
+  def course_name(name)
+    course_params[name]
+  end
 end

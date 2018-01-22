@@ -7,5 +7,4 @@ class Course < ApplicationRecord
   validates :price, presence: true, length: { maximum: 255 }
   validates :term, presence: true, length: { maximum: 255 }
   validates :name, presence: true, length: { maximum: 255 }
-
 end

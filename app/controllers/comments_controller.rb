@@ -2,14 +2,16 @@ class CommentsController < ApplicationController
   before_action :require_user_logged_in
 
   def create
+    @course = Course.find(params[:course_id])
     @comment = current_user.comments.build(comment_params)
-    if @comment.save
+    @comment.course_id = @course.id
+    if @comment.save!
       flash[:success] = 'メッセージを投稿しました。'
-      redirect_to root_url
+      redirect_to @course
     else
-      @comments = current_user.comments.order('created_at DESC').page(params[:page])
+      @comments = @course.comments.order('created_at DESC').page(params[:page])
       flash.now[:danger] = 'メッセージの投稿に失敗しました。'
-      render 'toppages/index'
+      render 'courses/show'
     end
   end
 

@@ -11,18 +11,21 @@ Rails.application.routes.draw do
 # schooltopについて実装
   root to: 'schools#index'
   resources :users, only: [:index, :show, :new, :create]
-  resources :comments, only: [:create, :destroy]
 
 # schoolのresources:
-  resources :schools, only: [:index, :show, :new, :create] do
+# schoolもeditするので、きちんと操作しよう。
+
+  resources :schools, only: [:index, :show, :new, :create, :edit, :update] do
+# resource 単数形? IDを二つ要求するroutingによる。
     resource :courses, only: [:new, :create]
     member do
       get :courses
-      get :toeic
     end
   end
   # cources のresources
-  resources :courses, only: [:index, :show]
+  resources :courses, only: [:index, :show, :edit, :update, :destroy] do
+    resource :comment, only: [:create]
+  end
   
-
+  resources :comments, only: [:show, :edit, :update, :destroy]
 end
